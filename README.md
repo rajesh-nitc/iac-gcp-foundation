@@ -1,4 +1,4 @@
-# terraform-gcp-foundation 
+# iac-gcp-foundation 
 
 This repo shows how to build a secure cloud foundation / landing zone on GCP.
 
