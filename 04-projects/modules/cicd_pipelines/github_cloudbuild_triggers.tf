@@ -6,7 +6,7 @@ resource "google_cloudbuild_trigger" "pr_trigger" {
   name     = "${each.key}-trigger"
 
   github {
-    name  = "gcp-foundation"
+    name  = "iac-gcp-foundation"
     owner = "rajesh-nitc"
 
     pull_request {
