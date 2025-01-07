@@ -1,19 +1,22 @@
-# iac-gcp-foundation 
+# iac-gcp-foundation
 
 This repo shows how to build a secure cloud foundation / landing zone on GCP.
 
 It is made up of following parts:
-- core (0* and 99-vpc-sc)
-- gke (1*)
-- data (2*)
-- onprem (9*)
+
+- core (0\*)
+- gke (1\*)
+- data (2\*)
+- onprem (9\*)
 
 ## Credits
+
 - [terraform-example-foundation](https://github.com/terraform-google-modules/terraform-example-foundation) (core)
 - [terraform-example-foundation-app](https://github.com/GoogleCloudPlatform/terraform-example-foundation-app) (gke)
-- [cloud-foundation-fabric](https://github.com/terraform-google-modules/cloud-foundation-fabric) (data, vpc-sc)
+- [cloud-foundation-fabric](https://github.com/terraform-google-modules/cloud-foundation-fabric) (data)
 
-## Org hierarchy 
+## Org hierarchy
+
 ```
 🏢 budita.dev (157305482127)
  +-- 📁 fldr-bootstrap (818226860401)
@@ -37,6 +40,7 @@ It is made up of following parts:
  +-- 📁 fldr-onprem (261068120484)
      +-- 📦 prj-onprem-o-connectivity-53cd
 ```
+
 https://github.com/GoogleCloudPlatform/professional-services/tree/main/tools/gcp-org-hierarchy-viewer
 
 ## Org IP address space
@@ -97,8 +101,11 @@ https://github.com/GoogleCloudPlatform/professional-services/tree/main/tools/gcp
 │           └── service.yaml
 └── README.md
 ```
+
 ## Validations
+
 Some validations to see if things work as expected:
+
 - Core foundation infra pipelines
 - Project-level infra and cicd pipelines
 - Basic python app deployed in a private gke cluster in shared vpc env
@@ -106,8 +113,11 @@ Some validations to see if things work as expected:
 - Set up onprem connectivity via cloud ha vpn in hub shared vpc and conduct basic tests
 
 ## Costs
+
 We get away with $0 bill on foundation resources:
+
 - Create private dns zones on demand. The current state of private dns zones for this foundation is listed below:
+
 ```
 enable_dns_zone_private_googleapis = false
 enable_dns_zone_gcr                = false
@@ -115,6 +125,7 @@ enable_dns_zone_pkg_dev            = false
 enable_dns_peering                 = false
 enable_dns_forwarding              = false
 ```
+
 - Disable container scanning api if it is enabled
 - Skip hierarchical firewall policies
 - Skip kms
